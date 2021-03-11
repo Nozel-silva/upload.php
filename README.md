@@ -1,51 +1,49 @@
-# upload.php
-<!DOCTYPE html>
-<html>
-<head>
-  <title>uploader</title>
-</head>
-<body style="background-color: yellow;">
-<?php
-$serverName = "localhost";
- $username = "root";
-$password = "";
-  $databaseName = "upload";
-//connect to database
-$con= new mysqli($serverName, $username, $password, $databaseName); 
-//set the submit button 
-if (isset($_POST['submit'])) {
-$filecount = count($_FILES['file']['name']);
-for ($i=0; $i<$filecount;$i++){
-$filename = $_FILES['file']['name'][$i];
-// insert details into 'img' table in database
-$sql = "INSERT INTO img(title, img) VALUES ('$filename','$filename')";
-$result   = mysqli_query($con, $sql);
-if ($result) {
-            echo "<div class='form'>
-                  <h3>uploaded successfully.</h3><br/>
-                  <p class='link'>Click here to continue <a href='login.php'>Login</a></p>
-                  </div>";
-        } else {
-            echo "<div class='form'>
-                  <h3>'ppRequired fields are missing.</h3><br/>
-                  <p class='link'>Click here to <a href='registration.php'>registration</a> again.</p>
-                  </div>";}
+200level List Of Applied Geophysics Students
+NAMES:
+1	AGAFIE EMMANUEL EMEKA	PSC1809050
+2	AGHAMWONYI OGHOSA GOODNESS	PSC1809051
+3	AHANOR OSADEBAMWEN SAMUEL	PSC1809052
+4	AIWANSOBA EDOSA	PSC1809053
+5	AKWEMOH AMOS FRANCIS 	PSC1809055
+6	ATOE PAUL AHKERE	PSC1809056
+7	BALOGBAN OSARETIN	PSC1809057
+8	DIETAKE OBARO DANIEL	PSC1809058
+9	EGBOIGBE MARVELOUS	PSC1809059
+10	EGHOSA LOUIS OSIFO	PSC1810770
+11	EJEKE OGHALE EMMANUELLA	PSC1809061
+12	ESENE YUSUF ERIFETA	PSC1809062
+13	GODSTIME OSSAI	PSC1809087
+14	IMOLOGHOMHE JOSHUA	PSC1809064
+15	IROBO JUNIOR OVIYENZE	PSC1809065
+16	ISREAL KENNETH ONAGHISE	PSC1809068
+17	IZEVBIGIE JOHN OSAKPOLOR	PSC1809067
+18	JOHN OSAKPANMWAN OSAIGBOVO	PSC1809086
+19	JOSHUA OHIREMEN OISEMAYE	PSC1809076
+20	MOMOH VICTOR	PSC1809069
+21	MOMOH RICHARDSON IDOWU	PSC18090
+22	NWAOMONOH EMMANUEL 	PSC1809071
+23	OBASUYI SUNDAY OMOGIADE	PSC1809072
+24	ODEH OBARO TIMOTHY	PSC1809073
+25	OGBOMO CLINTON OSARENKHOE	PSC1809074
+26	OGEDENGBE MICHEAL	PSC1809075
+27	ADENIKE EMMANUEL	PSC1809048
+28	OKAKA DANIEL	PSC1809079
+29	OKEKE INNICENT NZUBECHUKWU	PSC1809080
+30	OMOIKE SOLOMON EDOSA	PSC1809081
+31	ONAH IKECHUKWU	PSC1809082
+32	ONORHIVWE KEVWE	PSC1809083
+33	ONOTERE SOLOMON	PSC1809084
+34	OSADOLOR FAVOUR	PSC1809085
+35	OTABOR AISOSA VICTOR	PSC1809088
+36	OVIE-NYORENE OGHO	PSC1809089
+37	OYEME PAUL OGHENEVIYIEZE	PSC1809090
+38	PROMISE OGHENEYERHOVWO IYOMI	PSC1809066
+39	SOLOMON OSIOZOKHAI NOB	PSC1809070
+40	ULOKO ESIBUAMHE URIEL	PSC1809091
+41	VAL-IZEVBIGIE SOPHIA ADESUWA	PSC1809092
+42	YOUNG WINNIE	PSC1809093
+43	ALI NNAMDI JOSHUA	PSC1606910
+44	EGBONMWAN SAMUEL UYI	PSC1809261
+45	OMOROGBE OSAKPOLOR LARRY	PSC1609106
+46		
 
-
-// move the uploaded files to a folder named img that was created
-  move_uploaded_file($_FILES['file']['tmp_name'][$i], 'img/'.$filename);
-    }
-
-}
-
-?>
-
-
-
-  <form action="" method="POST" enctype="multipart/form-data">
-    <input type="file" name="file[]" multiple><br>
-    <input type="submit" name="submit" value="upload Images">
-
-  </form>
-</body>
-</html>
